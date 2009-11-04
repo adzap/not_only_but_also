@@ -6,7 +6,7 @@ appraised the model for opportunities to extract out pieces into libraries, it s
 a lot of code. I find this is particularly the case for validations for models with a large number of columns.
 
 This is where allowing for multiple files to define a class can help and is what NotOnlyButAlso allows. It defines a
-convention to help with organise multiple files as well as avoiding the need for repititive when using modules as
+convention to help organise multiple files as well as avoiding the need for repititive code when using modules as
 containers or re-opening the classes.
  
 You might recognise this style of solution as used by the concerned_with plugin (http://github.com/jakehow/concerned_with/).
