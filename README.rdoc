@@ -32,7 +32,7 @@ For example you want to extract out the validations to a separate file:
     not_only_but_also :validations
   end
 
-  in app/models/post/validations.rb
+  # in app/models/post/validations.rb
 
   Post.not_only_but_also do
     validates_presence_of :title
@@ -43,6 +43,8 @@ OR the shorthand version:
   class Post
     also_has :validations
   end
+
+  # in app/models/post/validations.rb
 
   Post.also_has do
     validates_presence_of :title
