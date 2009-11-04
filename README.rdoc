@@ -16,6 +16,7 @@ and I love the name.
 For interest here are some discussions of this type of solution in regards to concerned_with: 
 
 http://m.onkey.org/2008/9/15/active-record-tips-and-tricks
+
 http://paulbarry.com/articles/2008/08/30/concerned-with-skinny-controller-skinny-model
 
 For extra credit:
