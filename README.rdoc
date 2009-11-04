@@ -5,16 +5,15 @@ unwieldy to work in such files as they begin to look a bit messy. Assuming you h
 appraised the model for opportunities to extract out pieces into libraries, it still may leave you with
 a lot of code. I find this is particularly the case for validations for models with a large number of columns.
 
-This is where allowing for multiple files to define a class can help and is what NotOnlyButAlso allows.
-Even though Ruby has open classes and there is no barrier to sticking files anywhere you like to
-extend the class. Having a nice convention helps with organisation and avoids some repititive code you 
-need when using modules as containers.
+This is where allowing for multiple files to define a class can help and is what NotOnlyButAlso allows. It defines a
+convention to help with organise multiple files as well as avoiding the need for repititive when using modules as
+containers or re-opening the classes.
  
 You might recognise this style of solution as used by the concerned_with plugin (http://github.com/jakehow/concerned_with/).
 I wrote this a long time ago before I knew of the concerned_with plugin. I have released it because its got a simpler interface
 and I love the name.
 
-If you disagree with this solution contribute to the existing discussions about the concerned_with plugin
+For interest here are some discussions of this type of solution in regards to concerned_with: 
 
   http://m.onkey.org/2008/9/15/active-record-tips-and-tricks
   http://paulbarry.com/articles/2008/08/30/concerned-with-skinny-controller-skinny-model
