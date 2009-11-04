@@ -1,11 +1,11 @@
-= Not Only But Also ...
+= Not Only... But Also
 
 The Rails 'fat model' pattern is a good one but can result in very large model classes. It can be
 unwieldy to work in such files as they begin to look a bit messy. Assuming you have judiciously 
 appraised the model for opportunities to extract out pieces into libraries, it still may leave you with
 a lot of code. I find this is particularly the case for validations for models with a large number of columns.
 
-This is where allowing for multiple files to define a class can help and is what NotOnlyButAlso allows. It defines a
+This is where allowing for multiple files to define a class can help and is what NotOnlyButAlso does. It defines a
 convention to help organise multiple files as well as avoiding the need for repititive code when using modules as
 containers or re-opening the classes.
  
@@ -18,6 +18,9 @@ For interest here are some discussions of this type of solution in regards to co
   http://m.onkey.org/2008/9/15/active-record-tips-and-tricks
   http://paulbarry.com/articles/2008/08/30/concerned-with-skinny-controller-skinny-model
 
+For extra credit:
+
+  http://en.wikipedia.org/wiki/Not_Only..._But_Also
 
 == Install
 
