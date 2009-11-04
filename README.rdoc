@@ -1,0 +1,56 @@
+= Not Only But Also ...
+
+The Rails 'fat model' pattern is a good one but can result in very large model classes. It can be
+unwiedly to work in such files as they begin to look a bit messy. Assuming you have judiciously 
+appraised the model for opportunities to extract out pieces into libraries, it still may leave you with
+a lot of code. I find this is particularly the case for validations for models with large of columns.
+
+This is where allowing for multiple files to define a class can help and is what NotOnlyButAlso allows.
+Even though Ruby has open classes and there is no barrier to sticking files anywhere you like to
+extend the class. Having a nice convention helps with organisation and avoids some repititive code you 
+need when using modules as containers.
+ 
+You might recognise this style of solution as used by the concerned_with plugin (http://github.com/jakehow/concerned_with/).
+I wrote this a long time ago before I knew of the concerned_with plugin. I have released it because its got a simpler interface
+and I love the name.
+
+If you disagree with this solution contribute to the existing discussions about the concerned_with plugin
+
+  http://m.onkey.org/2008/9/15/active-record-tips-and-tricks
+  http://paulbarry.com/articles/2008/08/30/concerned-with-skinny-controller-skinny-model
+
+
+== Install
+
+  ./script/install plugin git://github.com/adzap/not_only_but_also.git
+
+== Usage
+
+For example you want to extract out the validations to a separate file:
+
+  class Post
+    not_only_but_also :validations
+  end
+
+  in app/models/post/validations.rb
+
+  Post.not_only_but_also do
+    validates_presence_of :title
+  end
+
+OR the shorthand version:
+
+  class Post
+    also_has :validations
+  end
+
+  Post.also_has do
+    validates_presence_of :title
+  end
+
+You can also use a suffix naming convention like so
+
+  app/models/post_validations.rb
+
+
+Copyright (c) 2009 Adam Meehan, released under the MIT license
