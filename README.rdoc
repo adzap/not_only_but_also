@@ -25,6 +25,12 @@ http://en.wikipedia.org/wiki/Not_Only..._But_Also
 
 == Install
 
+From Gemcutter:
+
+  gem install not_only_but_also
+
+Or as plugin:
+
   ./script/install plugin git://github.com/adzap/not_only_but_also.git
 
 == Usage
