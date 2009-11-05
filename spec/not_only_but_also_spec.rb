@@ -8,7 +8,7 @@ describe NotOnlyButAlso do
     ActiveSupport::Dependencies.loaded = []
   end
 
-  it 'should include named context from file in sub-folder' do
+  it 'should include only named context' do
     Post.class_eval do
       also_has :validations
     end
@@ -16,14 +16,7 @@ describe NotOnlyButAlso do
     Post.should_not respond_to(:test_stuff_method)
   end
 
-  it 'should include named context from named with suffix' do
-    Comment.class_eval do
-      also_has :validations
-    end
-    Comment.should respond_to(:test_validation_method)
-  end
-
-  it 'should include named contexts' do
+  it 'should include all named contexts' do
     Post.class_eval do
       also_has :validations, :stuff
     end

@@ -53,9 +53,5 @@ OR the shorthand version:
     validates_presence_of :title
   end
 
-You can also use a suffix naming convention like so
-
-  app/models/post_validations.rb
-
 
 Copyright (c) 2009 Adam Meehan, released under the MIT license
