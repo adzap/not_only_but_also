@@ -20,11 +20,7 @@ module NotOnlyButAlso
     class << self
 
       def require_context_file(class_name, context)
-        begin
-          require_dependency "#{class_name.underscore}/#{context}" 
-        rescue MissingSourceFile
-          require_dependency "#{class_name.underscore}_#{context}" 
-        end
+        require_dependency "#{class_name.underscore}/#{context}" 
       rescue MissingSourceFile => e
         raise e, "NotOnlyButAlso could not find a file for #{class_name} using context #{context}"
       end
