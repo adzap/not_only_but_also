@@ -60,4 +60,10 @@ OR the shorthand version:
   end
 
 
+There is a generator for quickly creating the context file and the directory if need be
+
+  ./script/generate not_only_but_also Post validations
+
+Adding the context to the model to have it loaded is left for as an exercise for the developer.
+
 Copyright (c) 2009 Adam Meehan, released under the MIT license
