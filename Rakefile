@@ -5,7 +5,7 @@ require 'rubygems/specification'
 require 'rspec/core/rake_task'
 
 GEM_NAME = "not_only_but_also"
-GEM_VERSION = '0.2.0'
+GEM_VERSION = '1.0.0'
 AUTHOR   = "Adam Meehan"
 EMAIL    = "adam.meehan@gmail.com"
 HOMEPAGE = "http://github.com/adzap/not_only_but_also"
