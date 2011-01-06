@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake/rdoctask'
 require 'rake/gempackagetask'
 require 'rubygems/specification'
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 
 GEM_NAME = "not_only_but_also"
 GEM_VERSION = '0.2.0'
@@ -32,19 +32,12 @@ end
 desc 'Default: run specs.'
 task :default => :spec
 
-spec_files = Rake::FileList["spec/**/*_spec.rb"]
-
 desc "Run specs"
-Spec::Rake::SpecTask.new do |t|
-  t.spec_files = spec_files
-  t.spec_opts = ["-c"]
-end
+RSpec::Core::RakeTask.new(:spec)
 
 desc "Generate code coverage"
-Spec::Rake::SpecTask.new(:coverage) do |t|
-  t.spec_files = spec_files
+RSpec::Core::RakeTask.new(:coverage) do |t|
   t.rcov = true
-  t.rcov_opts = ['--exclude', 'spec,/var/lib/gems']
 end
 
 desc 'Generate documentation for plugin.'
