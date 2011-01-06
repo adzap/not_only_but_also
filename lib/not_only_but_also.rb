@@ -27,4 +27,4 @@ module NotOnlyButAlso
 
 end
 
-ActiveRecord::Base.extend NotOnlyButAlso::ClassMethods
+Class.send :include, NotOnlyButAlso::ClassMethods

@@ -1,4 +1,7 @@
 Post.also_has do
-  def self.test_validation_method
+  def self.validation_class_method
+  end
+
+  def validation_instance_method
   end
 end

@@ -1,4 +1,7 @@
 Post.also_has do
-  def self.test_stuff_method
+  def self.stuff_class_method
+  end
+
+  def stuff_instance_method
   end
 end
