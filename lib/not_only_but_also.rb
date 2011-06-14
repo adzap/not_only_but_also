@@ -3,11 +3,14 @@ module NotOnlyButAlso
   module ClassMethods
 
     def not_only_but_also(*contexts, &block)
+      @_not_only_but_also_contexts ||= {}
       if block_given?
-        self.class_eval(&block)
+        context = contexts.first || NotOnlyButAlso::Helpers.context_name_from_file
+        @_not_only_but_also_contexts[context] = block
       else
         contexts.each do |context|
           NotOnlyButAlso::Helpers.require_context_file(name, context)
+          class_eval &@_not_only_but_also_contexts[context]
         end
       end
     end
@@ -19,10 +22,15 @@ module NotOnlyButAlso
 
     def self.require_context_file(class_name, context)
       require_dependency "#{class_name.underscore}/#{context}" 
-    rescue MissingSourceFile => e
-      raise e, "NotOnlyButAlso could not find a file for #{class_name} using context #{context}"
+    rescue MissingSourceFile => ex
+      raise ex, "NotOnlyButAlso could not find a file for #{class_name} using context #{context}"
     end
 
+    def self.context_name_from_file
+      if path = caller.find {|f| f !~ /#{__FILE__}/ }
+        path.split('/').last.split('.').first.to_sym
+      end
+    end
   end
 
 end

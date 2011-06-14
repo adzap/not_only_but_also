@@ -2,6 +2,8 @@ require 'rubygems'
 require 'rspec'
 
 require 'active_support/dependencies'
+require 'tmpdir'
+
 require 'not_only_but_also'
 
 RAILS_ROOT = File.join(File.dirname(__FILE__), 'rails_root')
