@@ -68,6 +68,12 @@ describe NotOnlyButAlso do
         Post.also_has :validations
       end
     end
+
+    describe ".context_name_from_file" do
+      it 'should return a symbol from the filename without the file extension' do
+        NotOnlyButAlso::Helpers.context_name_from_file(__FILE__).should == :not_only_but_also_spec
+      end
+    end
   end
 
   context "integration" do

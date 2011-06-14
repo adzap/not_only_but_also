@@ -5,7 +5,7 @@ module NotOnlyButAlso
     def not_only_but_also(*contexts, &block)
       @_not_only_but_also_contexts ||= {}
       if block_given?
-        context = contexts.first || NotOnlyButAlso::Helpers.context_name_from_file
+        context = contexts.first || NotOnlyButAlso::Helpers.context_name_from_file(caller.first)
         @_not_only_but_also_contexts[context] = block
       else
         contexts.each do |context|
@@ -26,10 +26,8 @@ module NotOnlyButAlso
       raise ex, "NotOnlyButAlso could not find a file for #{class_name} using context #{context}"
     end
 
-    def self.context_name_from_file
-      if path = caller.find {|f| f !~ /#{__FILE__}/ }
-        path.split('/').last.split('.').first.to_sym
-      end
+    def self.context_name_from_file(filename)
+       filename.split('/').last.split('.').first.to_sym
     end
   end
 
